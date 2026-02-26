@@ -1,0 +1,16 @@
+// HEADER: Sequelize CLI path configuration so migrations/seeders/models live under src.
+const path = require('path');
+
+module.exports = {
+  config: path.resolve('src', 'config', 'config.js'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'seeders'),
+  'migrations-path': path.resolve('src', 'migrations')
+};
+
+/*
+BOTTOM EXPLANATION
+- Responsibility: Tells sequelize-cli where project config, models, migrations, and seeders are located.
+- Key syntax: `path.resolve` builds absolute paths from project root for reliable CLI behavior.
+- Common mistakes: Wrong paths make `sequelize-cli db:migrate` fail with missing files.
+*/

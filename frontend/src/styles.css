@@ -1,0 +1,215 @@
+/* HEADER: Styling for Product Search page with an intentional colorful design. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  --bg-top: #fef6dc;
+  --bg-bottom: #d7f2f5;
+  --panel: #ffffffd6;
+  --panel-border: #0f4c5c33;
+  --text: #1b2430;
+  --accent: #0f4c5c;
+  --accent-2: #ff7f11;
+  --danger: #9b2226;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 15% 10%, #fff9e6 0%, #f7efe3 32%, transparent 60%),
+    linear-gradient(170deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  min-height: 100vh;
+}
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  margin-bottom: 16px;
+  padding: 18px 20px;
+  border: 2px solid var(--panel-border);
+  border-radius: 16px;
+  background: linear-gradient(120deg, #fff8df 0%, #ffffff 50%, #ecfcff 100%);
+  box-shadow: 0 10px 20px #0f4c5c1f;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  letter-spacing: 0.02em;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.panel h2,
+.panel h3 {
+  margin-top: 0;
+}
+
+.search-form {
+  display: grid;
+  gap: 10px;
+}
+
+.search-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.search-form input,
+.search-form select,
+button {
+  font: inherit;
+}
+
+.search-form input,
+.search-form select {
+  border: 1px solid #0f4c5c52;
+  border-radius: 9px;
+  padding: 10px 12px;
+  background: #ffffff;
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.inline-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--accent) 0%, #197278 100%);
+  color: white;
+  font-weight: 700;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+button:hover:enabled {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  background: #ffffff;
+  color: var(--accent);
+  border: 1px solid #0f4c5c52;
+}
+
+.facet-panel ul {
+  margin: 4px 0 10px;
+  padding-left: 18px;
+}
+
+.facet-title {
+  margin: 10px 0 4px;
+  font-weight: 700;
+}
+
+.result-list {
+  display: grid;
+  gap: 12px;
+}
+
+.result-card {
+  border: 1px solid #0f4c5c2e;
+  border-radius: 12px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.result-card h3 {
+  margin: 0 0 8px;
+}
+
+.meta {
+  margin: 2px 0;
+  color: #314155;
+  font-size: 0.95rem;
+}
+
+.highlight {
+  border-left: 4px solid var(--accent-2);
+  padding-left: 8px;
+  background: #fff4e7;
+}
+
+mark {
+  background: #ffcf99;
+  padding: 0 2px;
+}
+
+.error-box {
+  border: 1px solid #d00000;
+  color: var(--danger);
+  background: #ffe8e8;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.hint {
+  color: #314155;
+}
+
+.pagination-row {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 920px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-left,
+  .panel-right {
+    width: 100%;
+  }
+}
+
+/*
+BOTTOM EXPLANATION
+- Responsibility: Defines responsive visual style for filters, facets, and result cards.
+- Key syntax: CSS variables (`--name`) keep color/theme decisions centralized and easier to tweak.
+- Common mistakes: Missing mobile media query can make two-column layout unusable on small screens.
+*/

@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-opensearch-backend",
+  "version": "1.0.0",
+  "description": "Express + MySQL + OpenSearch learning backend",
+  "headerComment": "This package.json defines backend dependencies and scripts for development, migrations, seeding, and testing.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "migrate": "sequelize-cli db:migrate",
+    "migrate:undo": "sequelize-cli db:migrate:undo:all",
+    "seed": "sequelize-cli db:seed:all",
+    "seed:undo": "sequelize-cli db:seed:undo:all",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "@opensearch-project/opensearch": "^2.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2",
+    "supertest": "^7.0.0"
+  },
+  "bottomExplanation": {
+    "responsibility": "Declares backend runtime and dev tooling so the project can run, migrate, seed, and test.",
+    "keySyntax": "The scripts section maps npm commands to CLI commands like sequelize-cli and jest.",
+    "commonMistakes": "Forgetting sequelize-cli or mysql2 causes migration and DB connection failures."
+  }
+}
