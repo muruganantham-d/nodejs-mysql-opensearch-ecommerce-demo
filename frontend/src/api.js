@@ -10,6 +10,31 @@ export async function fetchSearchProducts(params) {
   return response.data;
 }
 
+export async function fetchProducts(params) {
+  const response = await apiClient.get('/products', { params });
+  return response.data;
+}
+
+export async function createProduct(payload) {
+  const response = await apiClient.post('/products', payload);
+  return response.data;
+}
+
+export async function updateProduct(productId, payload) {
+  const response = await apiClient.put(`/products/${productId}`, payload);
+  return response.data;
+}
+
+export async function deleteProduct(productId) {
+  const response = await apiClient.delete(`/products/${productId}`);
+  return response.data;
+}
+
+export async function reindexProductsFromMySQL() {
+  const response = await apiClient.post('/search/reindex');
+  return response.data;
+}
+
 /*
 BOTTOM EXPLANATION
 - Responsibility: Centralizes HTTP calls so components stay focused on UI behavior.

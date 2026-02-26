@@ -1,5 +1,6 @@
 /* HEADER: Main Product Search page with query controls, facets, and result list. */
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchSearchProducts } from './api';
 
 function App() {
@@ -80,7 +81,10 @@ function App() {
   return (
     <div className="page-shell">
       <header className="hero">
-        <h1>Product Search</h1>
+        <div className="hero-top-row">
+          <h1>Product Search</h1>
+          <Link to="/admin/products" className="hero-admin-link">Admin</Link>
+        </div>
         <p>MySQL for source-of-truth. OpenSearch for search + filters + facets.</p>
       </header>
 
